@@ -3,7 +3,10 @@
     public string Nombre{get;set;}
     public Musico(string n){Nombre=n;}//constructor
     
-    public void Saluda(){Console.WriteLine("Hola soy {0}",Nombre);}
+    public virtual string GetSaludo(){Console.WriteLine("Hola soy" + Nombre);}
+     public virtual void Saluda(){Console.WriteLine(GetSaludo());}
+
+
 
     public /*virtual*/abstract void Toca();
     /*{
@@ -18,6 +21,10 @@ class Bajista:Musico
     public string bajo {get;set;}
     public Bajista(string n,string b):base(n)
     {bajo=b;}
+
+    public override string GetSaluda(){Console.WriteLine(base.GetSaludo() + " Y soy guitarriste")}
+    public override void Saluda(){Console.WriteLine(GetSaluda());}
+
 
     public override void Toca()
     {
